@@ -4,9 +4,9 @@ Rails.application.routes.draw do
 
   get 'user_profile' =>'epicenter#show_user'
 
-  get 'now_following' => 'epicenter#now_following'
+  post 'now_following' => 'epicenter#now_following'
 
-  get 'unfollow' => 'epicenter#unfollow'
+  post 'unfollow' => 'epicenter#unfollow'
 
   resources :tweets
   devise_for :users

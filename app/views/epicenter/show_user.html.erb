@@ -3,6 +3,7 @@
 <h3>Bio:</h3>
 <p><%= @user.bio%></p>
 
+<p><%= "My Tweets:"%></p>
 <div class="row">
   <%@user.tweets.each do |tweet| %>
   <div class="col-md-12">
@@ -14,12 +15,24 @@
   </div>
       <% end %>
 </div>
+<% if current_user.id != @user.id %>
+    <% if current_user.following.include?(@user.id) %>
+        <%= form_tag('/unfollow') do %>
+            <span class="invisible">
+              <%= text_field_tag :unfollow_id, @user.id %>
+            </span><br/>
+            <%= submit_tag "Unfollow", class:"btn btn-danger" %>
+            <% end %>
+    <% else %>
+           <div>
+              <%= form_tag('/now_following') do %>
+                <span class="invisible">
+                   <%= text_field_tag :follow_id, @user.id %>
+                </span><br />
+                   <%=submit_tag "Follow", class: "btn btn-primary" %>
+              <%end%>
+           </div>
 
-<div>
-  <%= form_tag('/now_following') do %>
-  <span class="invisible">
-    <%= text_field_tag :follow_id, @user.id %>
-  </span><br />
-      <%=submit_tag "Follow", class: "btn btn-primary" %>
-      <%end%>
-</div>
+    <% end %>
+
+<% end %>

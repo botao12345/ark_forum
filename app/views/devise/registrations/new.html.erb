@@ -9,8 +9,8 @@
   </div>
 
   <div class="field">
-    <%= f.label :username %>
-    <%= f.username_field :username %>
+    <%= f.label :username %><br/>
+    <%= f.text_field :username %>
   </div>
 
   <div class="field">
@@ -25,6 +25,10 @@
     <%= f.label :password_confirmation %><br />
     <%= f.password_field :password_confirmation, autocomplete: "off" %>
   </div>
+    <div>
+      <%= f.label :Bio %> <i>Something about yourself..</i><br/>
+      <%= f.text_field :bio %>
+    </div>
 
   <div class="actions">
     <%= f.submit "Sign up" %>
