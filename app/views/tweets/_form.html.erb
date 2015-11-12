@@ -10,15 +10,16 @@
       </ul>
     </div>
   <% end %>
-
-  <div class="field">
+    <form>
+  <div class="field form-group">
     <%= f.label :message %><br>
     <%= f.text_field :message %>
   </div>
   <div class="cant-see-me">
       <%= f.number_field :user_id, value: current_user.id %>
   </div>
-  <div class="actions">
-    <%= f.submit %>
+  <div class="actions form-group">
+    <%= f.submit class:"btn btn-primary"%>
   </div>
+    </form>
 <% end %>
