@@ -1,3 +1,20 @@
+<script>
+  $(document).ready(function(){
+
+    $("#unfollow_btn").hover(function(){
+      $(this).removeClass("btn-primary");
+      $(this).addClass("btn-danger");
+      $(this).val("Unfollow");
+
+    }, function(){
+      $(this).removeClass("btn-danger");
+      $(this).addClass("btn-primary");
+      $(this).val("Following");
+
+    });
+  })
+</script>
+
 <h1><%= @user.username %></h1>
 <h3><%= @user.location %></h3>
 <h3>Bio:</h3>
@@ -21,8 +38,10 @@
             <span class="invisible">
               <%= text_field_tag :unfollow_id, @user.id %>
             </span><br/>
-            <%= submit_tag "Unfollow", class:"btn btn-danger" %>
-            <% end %>
+
+            <%= submit_tag "Following", class:"btn btn-primary", id:"unfollow_btn" %>
+
+        <% end %>
     <% else %>
            <div>
               <%= form_tag('/now_following') do %>
