@@ -35,9 +35,14 @@
       <%= f.text_field :bio %>
     </div>
 
-  <div class="actions">
+    <div>
+      <%= f.label :Photo %>
+      <%= f.file_field :photo %>
+    </div>
+
+  <p><div class="actions">
     <%= f.submit "Sign up" %>
-  </div>
+  </div></p>
 <% end %>
 
 <%= render "devise/shared/links" %>

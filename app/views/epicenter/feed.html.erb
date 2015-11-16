@@ -6,10 +6,20 @@
         <div class = "col-md-12">
           <div class = "panel panel-default">
             <div class = "panel-body">
-                <div>
-                 <p><%= f.message %></p>
-                 <p><strong><em><%= f.user.username %></em></strong></p>
+              <div class = "row">
+                <div class = "col-md-2">
+                  <% if f.user.photo.blank? %>
+                      <p><%= image_tag("Not_Available.jpg",height:100,width:150) %></p>
+                  <% else %>
+                      <p><%= image_tag f.user.photo, height:100,width:150%></p>
+                  <% end %>
                 </div>
+                <div class = "col-md-10">
+                  <h2><%= f.message %></h2>
+                </div>
+              </div>
+              <p><strong><em><%= f.user.username %></em></strong></p>
+
             </div>
           </div>
         </div>

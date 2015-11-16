@@ -5,9 +5,13 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
   has_many :tweets
 
+  mount_uploader :photo, AttachmentUploader
+
   serialize :following, Array
 
   validates :username, presence: true
   validates :username, uniqueness: true
+
+
 end
 

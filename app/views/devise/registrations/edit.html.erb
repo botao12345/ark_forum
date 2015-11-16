@@ -37,14 +37,19 @@
     <%= f.password_field :current_password, autocomplete: "off" %>
   </div>
 
-    <div>
+    <div class=field">
       <%= f.label :Bio %> <i>(Something about yourself..)</i><br/>
       <%= f.text_field :bio %>
     </div>
 
-  <div class="actions">
+    <div class="field">
+      <%= f.label :Photo %>
+      <%= f.file_field :photo %>
+    </div>
+
+    <p><div class="actions">
     <%= f.submit "Update" %>
-  </div>
+    </div></p>
 <% end %>
 
 <h3>Cancel my account</h3>

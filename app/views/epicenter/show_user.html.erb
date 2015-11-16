@@ -14,9 +14,19 @@
     });
   })
 </script>
-
-<h1><%= @user.username %></h1>
-<h3><%= @user.location %></h3>
+<div class="panel panel-default">
+  <div class="panel-body">
+    <div class = "row">
+      <div class ="col-md-9">
+       <h1><%= @user.username %></h1>
+      </div>
+      <div class ="col-md-3">
+        <%= image_tag @user.photo, class:"img-circle", height: 100%>
+      </div>
+    </div>
+  </div>
+</div>
+<h3><%="Location: " %><%=@user.location %></h3>
 <h3>Bio:</h3>
 <p><%= @user.bio%></p>
 
