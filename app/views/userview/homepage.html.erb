@@ -1,0 +1,29 @@
+<h1>Hello, <%= current_user.username %>. Welcome to GanjaRipper! </h1>
+
+<div class="panel panel-default">
+  <div class="panel panel-heading">
+    <h2>Post</h2>
+  </div>
+  <div class="panel panel-body">
+    <table class="table">
+      <thead>
+      <tr>
+        <th>Title</th>
+        <th>User</th>
+        <th>Time</th>
+      </tr>
+      </thead>
+      <tbody>
+      <%@tweets.each do |tweet|%>
+      <tr>
+        <td><%=link_to tweet.message, tweet_path(id: tweet.id)%></td>
+        <td><%=tweet.user.username%></td>
+        <td><%=tweet.created_at%></td>
+        <%end%>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<%= link_to 'New Post', new_tweet_path, class:"btn btn-primary" %>

@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
 
-  root 'epicenter#feed'
+
+  root 'userview#homepage'
+
+  resources :responses
 
   get 'user_profile' =>'epicenter#show_user'
 

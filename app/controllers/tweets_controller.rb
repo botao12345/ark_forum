@@ -10,6 +10,16 @@ class TweetsController < ApplicationController
   # GET /tweets/1
   # GET /tweets/1.json
   def show
+    @response_this = []
+
+    @responses = Response.all
+
+    @responses.each do |response|
+      if response.tweet.id == @tweet.id
+        @response_this.push(response)
+      end
+    end
+
   end
 
   # GET /tweets/new
@@ -69,6 +79,6 @@ class TweetsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def tweet_params
-      params.require(:tweet).permit(:message, :user_id)
+      params.require(:tweet).permit(:message, :user_id, :photo,:title)
     end
 end

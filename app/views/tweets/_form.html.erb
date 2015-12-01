@@ -1,25 +1,33 @@
 <%= form_for(@tweet) do |f| %>
-  <% if @tweet.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@tweet.errors.count, "error") %> prohibited this tweet from being saved:</h2>
+    <% if @tweet.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(@tweet.errors.count, "error") %> prohibited this post from being saved:</h2>
 
-      <ul>
-      <% @tweet.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
+          <ul>
+            <% @tweet.errors.full_messages.each do |message| %>
+                <li><%= message %></li>
+            <% end %>
+          </ul>
+        </div>
+    <% end %>
     <form>
-  <div class="field form-group">
-    <%= f.label :message %><br>
-    <%= f.text_field :message %>
-  </div>
-  <div class="cant-see-me">
-      <%= f.number_field :user_id, value: current_user.id %>
-  </div>
-  <div class="actions form-group">
-    <%= f.submit class:"btn btn-primary"%>
-  </div>
+      <div class="field form-group">
+        <%= f.label :title %><br>
+        <%= f.text_field :title %>
+      </div>
+      <div class="field form-group">
+        <%= f.label :message %><br>
+        <%= f.text_field :message %>
+      </div>
+      <div class="field form-group">
+        <%= f.label :photo %><br>
+        <%= f.file_field :photo %>
+      </div>
+      <div class="cant-see-me">
+        <%= f.number_field :user_id, value: current_user.id %>
+      </div>
+      <div class="actions form-group">
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </div>
     </form>
 <% end %>

@@ -2,20 +2,19 @@
 <html>
 <head>
   <title>TtsTwitter</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
 
-<nav class="navbar navbar-inverse">
+<nav class="navbar navbar-inverse" style="margin-bottom:0px;">
   <div class="container-fluid">
     <div class="navbar-header">
       <%= link_to "Home", root_path, class: "navbar-brand" %>
     </div>
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav navbar-left">
-        <li><%= link_to "Tweet", tweets_path %></li>
         <!-- Future Links! -->
       </ul>
       <ul class="nav navbar-nav navbar-right">
@@ -23,15 +22,19 @@
             <li><%= link_to "Edit Profile", edit_user_registration_path %></li>
             <li><%= link_to "Sign Out", destroy_user_session_path, method: :delete %></li>
         <% else %>
-            <li><%= link_to "Sign Up",  new_user_registration_path %></li>
-            <li><%= link_to "Forgot Password",  new_user_password_path %></li>
+            <li><%= link_to "Sign Up", new_user_registration_path %></li>
+            <li><%= link_to "Forgot Password", new_user_password_path %></li>
         <% end %>
       </ul>
     </div>
   </div>
 </nav>
-<div class = "container">
-<%= yield %>
+<div><%= image_tag "ark1.png", class: "img-responsive" %></div>
+
+<div class="container">
+  <div class="panel panel-body">
+    <%= yield %>
+  </div>
 </div>
 </body>
 </html>

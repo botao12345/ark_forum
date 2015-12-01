@@ -1,0 +1,30 @@
+<%= form_for(@response) do |f| %>
+    <% if @response.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(@response.errors.count, "error") %> prohibited this response from being saved:</h2>
+
+          <ul>
+            <% @response.errors.full_messages.each do |message| %>
+                <li><%= message %></li>
+            <% end %>
+          </ul>
+        </div>
+    <% end %>
+    <form>
+      <div class="field form-group">
+        <%= f.label :message %><br>
+        <%= f.text_area :message %>
+      </div>
+      <div class="cant-see-me">
+        <%= f.label :tweet_id %><br>
+        <%= f.number_field :tweet_id, value: params[:tweet_id]%>
+      </div>
+      <div class="cant-see-me">
+        <%= f.label :user_id %><br>
+        <%= f.number_field :user_id, value: current_user.id %>
+      </div>
+      <div class="actions form-group">
+        <%= f.submit class: "btn btn-primary" %>
+      </div>
+    </form>
+<% end %>

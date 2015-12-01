@@ -24,6 +24,8 @@ class EpicenterController < ApplicationController
     current_user.following.push(params[:follow_id].to_i)
 
     current_user.save
+
+    redirect_to user_profile_path(id: @user.id)
   end
 
 
@@ -33,5 +35,11 @@ class EpicenterController < ApplicationController
     current_user.following.delete(params[:unfollow_id].to_i)
 
     current_user.save
+
+    redirect_to user_profile_path(id: @user.id)
+  end
+
+  def js_practice
+
   end
 end

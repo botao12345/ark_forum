@@ -11,14 +11,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151115232502) do
+ActiveRecord::Schema.define(version: 20151201205701) do
 
-  create_table "tweets", force: :cascade do |t|
-    t.string   "message"
+  create_table "responses", force: :cascade do |t|
+    t.text     "message"
+    t.integer  "tweet_id"
     t.integer  "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
+
+# Could not dump table "tweets" because of following NoMethodError
+#   undefined method `[]' for nil:NilClass
 
 # Could not dump table "users" because of following NoMethodError
 #   undefined method `[]' for nil:NilClass

@@ -26,17 +26,14 @@
     </div>
   </div>
 </div>
-<h3><%="Location: " %><%=@user.location %></h3>
-<h3>Bio:</h3>
-<p><%= @user.bio%></p>
 
-<p><%= "My Tweets:"%></p>
+<p><%= "My Posts:"%></p>
 <div class="row">
   <%@user.tweets.each do |tweet| %>
   <div class="col-md-12">
     <div class="panel panel-default">
       <div class="panel-body">
-        <p><%=tweet.message%></p>
+        <p><%=link_to tweet.title, tweet_path(id:tweet.id)%></p>
       </div>
     </div>
   </div>

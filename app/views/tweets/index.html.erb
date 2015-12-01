@@ -1,6 +1,6 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Listing Tweets</h1>
+<h1>Listing News</h1>
 
 <table class ="table">
   <thead>
@@ -17,7 +17,7 @@
         <td><%= tweet.message %></td>
         <td><%= link_to tweet.user.username, user_profile_path(id: tweet.user.id) %></td>
         <td><%= link_to 'Show', tweet %></td>
-        <%if current_user.id == tweet.user.id %>
+        <%if current_user.id == tweet.user.id || current_user.username=="MarcoBo"%>
         <td><%= link_to 'Edit', edit_tweet_path(tweet) %></td>
         <td><%= link_to 'Destroy', tweet, method: :delete, data: { confirm: 'Are you sure?' } %></td>
         <% end %>
@@ -28,4 +28,4 @@
 
 <br>
 
-<%= link_to 'New Tweet', new_tweet_path, class:"btn btn-primary" %>
+<%= link_to 'New Post', new_tweet_path, class:"btn btn-primary" %>

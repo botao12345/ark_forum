@@ -11,7 +11,7 @@
                   <% if f.user.photo.blank? %>
                       <p><%= image_tag("Not_Available.jpg",height:100,width:150) %></p>
                   <% else %>
-                      <p><%= image_tag f.user.photo, height:100,width:150%></p>
+                      <p><%= image_tag f.user.photo, height:100,width:150, class:"thumbnail"%></p>
                   <% end %>
                 </div>
                 <div class = "col-md-10">
