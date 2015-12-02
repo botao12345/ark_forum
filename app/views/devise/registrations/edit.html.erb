@@ -4,11 +4,11 @@
   <%= devise_error_messages! %>
 
   <div class="field">
-    <%= f.label :email %><br />
+    <%= f.label :email %> <i>(This will be used for login.)</i><br />
     <%= f.email_field :email, autofocus: true %>
   </div>
   <div class="field">
-      <%= f.label :username %><br/>
+      <%= f.label :username %> <i>(This will be shown to other users.)</i><br/>
       <%= f.text_field :username %>
   </div>
 
@@ -30,7 +30,7 @@
     <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
     <%= f.password_field :current_password, autocomplete: "off" %>
   </div>
-    <div class="field">
+    <div class="cant-see-me">
       <%= f.label :Photo %>
       <%= f.file_field :photo %>
     </div>

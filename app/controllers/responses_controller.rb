@@ -5,11 +5,16 @@ class ResponsesController < ApplicationController
   # GET /responses.json
   def index
     @responses = Response.all
+
+    redirect_to root_path
   end
 
   # GET /responses/1
   # GET /responses/1.json
   def show
+    @tweet = @response.tweet
+    id = @tweet.id
+    redirect_to tweet_path(id)
   end
 
   # GET /responses/new
@@ -60,6 +65,7 @@ class ResponsesController < ApplicationController
       format.html { redirect_to responses_url, notice: 'Response was successfully destroyed.' }
       format.json { head :no_content }
     end
+
   end
 
   private
