@@ -16,7 +16,7 @@
       <tbody>
       <%@tweets.each do |tweet|%>
       <tr>
-        <td><%=link_to tweet.message, tweet_path(id: tweet.id)%></td>
+        <td><%=link_to tweet.title, tweet_path(id: tweet.id)%></td>
         <td><%=tweet.user.username%></td>
         <td><%=tweet.created_at%></td>
         <%end%>
