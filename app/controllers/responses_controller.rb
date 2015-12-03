@@ -6,7 +6,6 @@ class ResponsesController < ApplicationController
   def index
     @responses = Response.all
 
-
   end
 
   # GET /responses/1
@@ -60,11 +59,13 @@ class ResponsesController < ApplicationController
   # DELETE /responses/1
   # DELETE /responses/1.json
   def destroy
+    @id = @response.tweet_id
     @response.destroy
     respond_to do |format|
-      format.html { redirect_to responses_url, notice: 'Response was successfully destroyed.' }
+      format.html { redirect_to tweet_path(@id), notice: 'Response was successfully deleted.' }
       format.json { head :no_content }
     end
+
 
   end
 
