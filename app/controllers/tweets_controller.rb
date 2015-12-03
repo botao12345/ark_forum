@@ -15,9 +15,14 @@ class TweetsController < ApplicationController
     @responses = Response.all
 
     @responses.each do |response|
-      if response.tweet.id == @tweet.id
-        @response_this.push(response)
+      if response.tweet == nil
+
+      else
+        if response.tweet.id == @tweet.id
+          @response_this.push(response)
+        end
       end
+
     end
 
   end
@@ -64,6 +69,13 @@ class TweetsController < ApplicationController
   # DELETE /tweets/1
   # DELETE /tweets/1.json
   def destroy
+    @tweet_id = @tweet.id
+    @responses = Response.all
+    @responses.each do |r|
+      if r.tweet_id == @tweet_id
+        r.destroy
+      end
+    end
     @tweet.destroy
     respond_to do |format|
       format.html { redirect_to tweets_url, notice: 'Tweet was successfully destroyed.' }
@@ -72,13 +84,13 @@ class TweetsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_tweet
-      @tweet = Tweet.find(params[:id])
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_tweet
+    @tweet = Tweet.find(params[:id])
+  end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def tweet_params
-      params.require(:tweet).permit(:message, :user_id, :photo,:title)
-    end
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def tweet_params
+    params.require(:tweet).permit(:message, :user_id, :photo, :title)
+  end
 end

@@ -6,7 +6,7 @@ class ResponsesController < ApplicationController
   def index
     @responses = Response.all
 
-    redirect_to root_path
+
   end
 
   # GET /responses/1
