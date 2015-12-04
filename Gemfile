@@ -2,7 +2,9 @@ source 'https://rubygems.org'
 
 gem 'bootstrap-sass', '~> 3.3.5'
 gem 'devise'
-gem 'carrierwave', '~> 0.9'
+gem 'carrierwave', '~>0.9'
+gem 'fog'
+gem 'figaro'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.4'
