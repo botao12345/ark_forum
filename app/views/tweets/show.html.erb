@@ -12,14 +12,16 @@
     </div>
 
     <div class="panel panel-body">
-      <p>
-        <%= image_tag @tweet.photo, class: "img-responsive" %>
-      </p>
 
       <p>
         <strong>Message:</strong>
         <%= @tweet.message %>
       </p>
+
+      <p>
+        <%= image_tag @tweet.photo, class: "img-responsive" %>
+      </p>
+
 
       <p>
         <strong>User:</strong>
